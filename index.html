@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Calculator</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Calculator</h1>
+    <div class="calculator">
+      <div class="grid">
+        <div class="display"></div>
+        <!-- First row -->
+        <button data-func="num" class="btn">1</button>
+        <button data-func="num" class="btn">3</button>
+        <button data-func="num" class="btn">2</button>
+        <button data-func="num" class="btn">&plus;</button>
+        <!-- Second row -->
+        <button data-func="num" class="btn">4</button>
+        <button data-func="num" class="btn">5</button>
+        <button data-func="num" class="btn">6</button>
+        <button data-func="num" class="btn">&minus;</button>
+        <!-- Third row -->
+        <button data-func="num" class="btn">7</button>
+        <button data-func="num" class="btn">8</button>
+        <button data-func="num" class="btn">9</button>
+        <button data-func="num" class="btn">&times;</button>
+        <!-- Fourth row -->
+        <button data-func="clr" class="btn">C</button>
+        <button data-func="num" class="btn">0</button>
+        <button data-func="equ" class="btn">&equals;</button>
+        <button data-func="num" class="btn">&divide;</button>
+      </div>
+    </div>
+    <label class="switch">
+      <input id="color-mode" type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

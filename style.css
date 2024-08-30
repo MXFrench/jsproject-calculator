@@ -1,0 +1,209 @@
+/* Variables */
+:root {
+  --color-primary-dark: rgb(23, 31, 57);
+  --color-primary: rgb(60, 28, 88);
+  --color-primary-light: rgb(86, 10, 72);
+  --color-accent: rgb(110, 193, 193);
+  --color-accent-st: rgba(110, 193, 193, .8);
+  --color-shadow: rgba(19, 19, 19, 0.8);
+  --color-backdrop: rgba(20, 20, 20, .5);
+}
+
+body:has(#color-mode:checked) {
+  --color-primary-dark: rgb(173, 191, 249);
+  --color-primary: rgb(176, 130, 221);
+  --color-primary-light: rgb(208, 131, 195);
+  --color-accent: rgb(0, 119, 119);
+  --color-accent-st: rgba(0, 119, 119, .4);
+  --color-shadow: rgba(19,19,19,.3);
+  --color-backdrop: rgba(236, 236, 236, 0.29);
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-accent);
+}
+
+/* Universal Reset */
+*,*::after,*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+/* Base */
+body {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-primary-dark),
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  min-height: 100vh;
+  line-height: 1;
+  font-family: "PT Mono", monospace;
+}
+
+/* Typography */
+.title {
+  font-size: 8rem;
+  color: var(--color-accent);
+  text-shadow: 4px 8px 1rem var(--color-shadow);
+}
+
+/* Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rem 0;
+  gap: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 12rem repeat(4, 10rem);
+  gap: 2rem;
+}
+
+/* Components */
+.calculator {
+  width: 50rem;
+  background-color: var(--color-backdrop);
+  border: 1px solid var(--color-accent);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.display {
+  grid-column: 1 / -1;
+  background-color: var(--color-accent-st);
+  color: var(--color-primary-dark);
+  overflow: hidden;
+  padding: 0 2rem;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  transition: all .2s;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  font-size: 4rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+.btn:active{
+  box-shadow: 2px 4px .5rem var(--color-shadow);
+}
+
+.display,.btn {
+  border-radius: 4px;
+  box-shadow: 4px 8px 1rem var(--color-shadow);
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 3.4rem;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-backdrop);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 3.4rem;
+  box-shadow: 0 .2rem 1rem var(--color-shadow);
+}
+
+.slider:after {
+  position: absolute;
+  content: "☀️";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 2.6rem;
+  width: 2.6rem;
+  left: .4rem;
+  bottom: .4rem;
+  background-color: var(--color-accent);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--color-primary);
+}
+
+input:checked + .slider:after {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  content: "🌙";
+}
+
+/* Responsiveness */
+@media (max-width: 37.5em) { /* 600px */
+  html {
+    font-size: 50%; /* 1rem = 8px */
+  }
+}
+
+@media (max-width: 31.25em) { /* 500px */
+  html {
+    font-size: 37.5%; /* 1rem = 6px */
+  }
+}
+
+@media (max-width: 21.875em) { /* 350px */
+  html {
+    font-size: 31.25%; /* 1rem = 5px */
+  }
+}
+
+@media (max-width: 18.75em) { /* 300px */
+  html {
+    font-size: 25%; /* 1rem = 4px */
+  }
+}
+
+@media (min-width: 112.5em) { /* 1800px */
+  html {
+    font-size: 75%; /* 1rem = 12px */
+  }
+}
